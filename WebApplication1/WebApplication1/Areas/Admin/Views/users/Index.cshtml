@@ -1,0 +1,149 @@
+﻿@model IEnumerable<WebApplication1.Models.user>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div>
+
+
+    @*<table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.gmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.avatar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.position)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.created)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.avatar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.position)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.created)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.user_id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.user_id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.user_id })
+                    </td>
+                </tr>
+            }
+
+        </table>*@
+</div>
+
+    <main class="cc">
+        <div class="container-fluid p-0">
+
+            <div class="mb-3">
+                <h1 class="h3 d-inline align-middle">Danh sách khách hàng</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="card">
+                        @*<div class="card-header pb-0">
+                                <div class="card-actions float-end">
+                                    <div class="dropdown show">
+                                        <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                                            <i class="align-middle" data-feather="more-horizontal"></i>
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="card-title mb-0">Clients</h5>
+                            </div>*@
+                        <div class="card-body">
+                            <table class="table table-striped" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+                                            <td>
+                                                <a class="" href="~/Admin/users/Details/@item.user_id">
+                                                    <img src="~/Areas/Admin/Data/img/avatars/avatar.jpg" width="32" height="32" class="rounded-circle my-n1" alt="Avatar">
+                                                </a>
+                                            </td>
+                                            <td>@item.username</td>
+                                            <td>@item.phone</td>
+                                            <td>@item.gmail</td>
+                                            <td>
+
+                                             @*   @Html.ActionLink("i", "Details", new { id = item.user_id }, new { @class = "btn btn-warning" })*@
+                                                @Html.ActionLink("X", "Delete", new { id = item.user_id }, new { @class = "btn btn-danger" })
+                                            </td>
+                                        </tr>
+
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+        </div>
+    </main>
+
+   
